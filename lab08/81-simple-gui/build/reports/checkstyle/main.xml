@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.20.1">
+<file name="/Users/nickolausen/Documents/GitHub/unibo-oop/lab08/81-simple-gui/src/main/java/it/unibo/mvc/MiniGUI.java">
+<error line="9" column="8" severity="error" message="Unused import - java.awt.LayoutManager." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="35" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+</file>
+</checkstyle>

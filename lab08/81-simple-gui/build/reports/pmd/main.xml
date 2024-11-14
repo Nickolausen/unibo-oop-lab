@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.7.0" timestamp="2024-11-12T15:43:10.651">
+<file name="/Users/nickolausen/Documents/GitHub/unibo-oop/lab08/81-simple-gui/src/main/java/it/unibo/mvc/MiniGUI.java">
+<violation beginline="9" endline="9" begincolumn="1" endcolumn="31" rule="UnnecessaryImport" ruleset="Code Style" package="it.unibo.mvc" class="MiniGUI" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Unused import 'java.awt.LayoutManager'
+</violation>
+<violation beginline="51" endline="51" begincolumn="17" endcolumn="23" rule="SystemPrintln" ruleset="Best Practices" package="it.unibo.mvc" method="actionPerformed" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+Usage of System.out/err
+</violation>
+</file>
+</pmd>

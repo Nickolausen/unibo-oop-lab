@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd xmlns="https://pmd-code.org/schema/cpd-report"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         pmdVersion="7.7.0"
+         timestamp="2024-11-12T15:42:38.138374+01:00"
+         version="1.0.0"
+         xsi:schemaLocation="https://pmd-code.org/schema/cpd-report https://pmd.github.io/schema/cpd-report_1_0_0.xsd">
+   <file path="/Users/nickolausen/Documents/GitHub/unibo-oop/lab08/81-simple-gui/src/main/java/it/unibo/mvc/MiniGUI.java"
+         totalNumberOfTokens="250"/>
+</pmd-cpd>
