@@ -28,4 +28,13 @@ public interface DrawNumberController {
      * @param newView the view to be added
      */
     void addView(DrawNumberView newView);
+
+
+    /**
+     * Deletes a certain view.
+     * 
+     * @param viewToDelete the view to be deleted
+     * @return true if viewToDelete has been removed, false otherwise
+     */
+    boolean removeView(DrawNumberView viewToDelete);
 }

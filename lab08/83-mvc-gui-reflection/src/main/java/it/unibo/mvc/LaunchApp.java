@@ -1,17 +1,21 @@
 package it.unibo.mvc;
 
 import it.unibo.mvc.api.DrawNumberController;
+import it.unibo.mvc.api.DrawNumberView;
 import it.unibo.mvc.controller.DrawNumberControllerImpl;
 import it.unibo.mvc.model.DrawNumberImpl;
-import it.unibo.mvc.view.DrawNumberSwingView;
 
+import java.util.List;
 /**
  * Application entry-point.
  */
 public final class LaunchApp {
+    
+    private static List<String> IMPLEMENTED_VIEWS = List.of("DrawNumberStdoutView", "DrawNumberSwingView");
+    private static Integer NR_VIEWS_PER_KIND = 3;
 
     private LaunchApp() { }
-
+    
     /**
      * Runs the application.
      *
@@ -23,9 +27,19 @@ public final class LaunchApp {
      * @throws IllegalAccessException in case of reflection issues
      * @throws IllegalArgumentException in case of reflection issues
      */
+    @SuppressWarnings("deprecated")
     public static void main(final String... args) {
         final var model = new DrawNumberImpl();
         final DrawNumberController app = new DrawNumberControllerImpl(model);
-        app.addView(new DrawNumberSwingView());
+        for (final var viewClass: IMPLEMENTED_VIEWS) {
+            for (int i = 0; i < NR_VIEWS_PER_KIND; i++) {
+                try {
+                    final var newView = Class.forName("it.unibo.mvc.view." + viewClass).newInstance(); 
+                    app.addView((DrawNumberView)newView);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
