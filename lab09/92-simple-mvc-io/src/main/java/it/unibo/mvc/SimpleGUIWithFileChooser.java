@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.awt.BorderLayout;
@@ -17,7 +16,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+
 
 /**
  * A very simple program using a graphical interface.
@@ -26,15 +25,18 @@ import java.io.IOException;
 public final class SimpleGUIWithFileChooser {
 
     private static final String TITLE = "My second java graphical interface";
+    private static final int PROPORTION = 5;
     private final JFrame frame = new JFrame(TITLE);
     private final Controller controller;
-    private final static int PROPORTION = 5;
 
+    /**
+     * Default constructor.
+     */
     public SimpleGUIWithFileChooser() {
         this.controller = new Controller();
         setupView();
     }
-    
+
     /**
      * Initializes the elements in the view.
      */
@@ -69,18 +71,21 @@ public final class SimpleGUIWithFileChooser {
                     controller.setCurrentFile(fileChooser.getSelectedFile());
                     displayFilePath.setText(controller.getCurrentFilePath());
                     break;
-                    
+
                     case JFileChooser.CANCEL_OPTION:
                     break;
-                    
+
                     case JFileChooser.ERROR_OPTION:
                     JOptionPane.showMessageDialog(frame, "Something went wrong!", "Error", JOptionPane.ERROR_MESSAGE);
+                    break;
+
+                    default:
                     break;
                 } 
             }
         });
-        horizontalTopPanel.add(displayFilePath, BorderLayout.WEST);
-        horizontalTopPanel.add(browseFile, BorderLayout.EAST);
+        horizontalTopPanel.add(displayFilePath, BorderLayout.CENTER);
+        horizontalTopPanel.add(browseFile, BorderLayout.LINE_END);
         canvas.add(horizontalTopPanel, BorderLayout.NORTH);
         canvas.add(textArea, BorderLayout.CENTER);
         canvas.add(save, BorderLayout.SOUTH);
@@ -99,7 +104,12 @@ public final class SimpleGUIWithFileChooser {
         frame.setVisible(true);
     }
 
-    public static void main(String... args) {
+    /**
+     * Runs the application.
+     * 
+     * @param args ignored
+     */
+    public static void main(final String... args) {
         new SimpleGUIWithFileChooser().display();
     }
 }

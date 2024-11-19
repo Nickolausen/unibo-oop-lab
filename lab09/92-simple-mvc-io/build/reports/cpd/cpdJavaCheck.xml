@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd xmlns="https://pmd-code.org/schema/cpd-report"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         pmdVersion="7.7.0"
+         timestamp="2024-11-19T18:43:11.706969+01:00"
+         version="1.0.0"
+         xsi:schemaLocation="https://pmd-code.org/schema/cpd-report https://pmd.github.io/schema/cpd-report_1_0_0.xsd">
+   <file path="/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/92-simple-mvc-io/src/main/java/it/unibo/mvc/Controller.java"
+         totalNumberOfTokens="117"/>
+   <file path="/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/92-simple-mvc-io/src/main/java/it/unibo/mvc/SimpleGUI.java"
+         totalNumberOfTokens="262"/>
+   <file path="/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/92-simple-mvc-io/src/main/java/it/unibo/mvc/SimpleGUIWithFileChooser.java"
+         totalNumberOfTokens="450"/>
+   <duplication lines="24" tokens="100">
+      <file begintoken="271"
+            column="14"
+            endcolumn="12"
+            endline="76"
+            endtoken="370"
+            line="53"
+            path="/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/92-simple-mvc-io/src/main/java/it/unibo/mvc/SimpleGUI.java"/>
+      <file begintoken="722"
+            column="49"
+            endcolumn="12"
+            endline="113"
+            endtoken="821"
+            line="90"
+            path="/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/92-simple-mvc-io/src/main/java/it/unibo/mvc/SimpleGUIWithFileChooser.java"/>
+      <codefragment><![CDATA[            });
+            canvas.add(save, BorderLayout.SOUTH);
+            this.frame.add(canvas);
+        }
+
+        /**
+         * Renders the main frame.
+         */
+        public void display() {
+            final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+            final int sw = (int) screen.getWidth();
+            final int sh = (int) screen.getHeight();
+            frame.setSize(sw / PROPORTION, sh / PROPORTION);
+            frame.setLocationByPlatform(true);
+            frame.setVisible(true);
+    }
+
+    /**
+     * Runs the application.
+     * 
+     * @param args ignored
+     */
+    public static void main(final String... args) {
+        new SimpleGUI().display();
+]]></codefragment>
+   </duplication>
+</pmd-cpd>

@@ -6,20 +6,16 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
-import javax.swing.JOptionPane;
-
 /**
  * Application controller. Performs the I/O.
  */
 public class Controller {
 
-    private static String DEFAULT_CURRENT_FILE_PATH = System.getProperty("user.home") + File.separator + "output.txt";
+    private static final String DEFAULT_CURRENT_FILE_PATH = System.getProperty("user.home") + File.separator + "output.txt";
     private File currentFile = new File(DEFAULT_CURRENT_FILE_PATH);
 
-    public Controller() { }
-
     /**
-     * Sets the current file the application should consider
+     * Sets the current file the application should consider.
      * 
      * @param cf file to set
      */
@@ -28,7 +24,7 @@ public class Controller {
     }
 
     /**
-     * Gets the current file the application is considering
+     * Gets the current file the application is considering.
      * 
      * @return the current file
      */
@@ -37,7 +33,7 @@ public class Controller {
     }
 
     /**
-     * Gets the path of the current file, in form of a String
+     * Gets the path of the current file, in form of a String.
      * 
      * @return the path of the current file, in form of a String
      */

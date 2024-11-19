@@ -23,12 +23,15 @@ public final class SimpleGUI {
         private static final int PROPORTION = 5;
         private final JFrame frame = new JFrame(TITLE);
         private final Controller controller;
-    
+
+        /**
+         * Default constructor.
+         */
         public SimpleGUI() {
             this.controller = new Controller();
             setupView();
         }
-        
+ 
         /**
          * Initializes the elements in the view.
          */
@@ -47,12 +50,11 @@ public final class SimpleGUI {
                         JOptionPane.showMessageDialog(frame, ex, "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-                
             });
             canvas.add(save, BorderLayout.SOUTH);
             this.frame.add(canvas);
         }
-    
+
         /**
          * Renders the main frame.
          */
@@ -65,7 +67,12 @@ public final class SimpleGUI {
             frame.setVisible(true);
     }
 
-    public static void main(String... args) {
+    /**
+     * Runs the application.
+     * 
+     * @param args ignored
+     */
+    public static void main(final String... args) {
         new SimpleGUI().display();
     }
 }
