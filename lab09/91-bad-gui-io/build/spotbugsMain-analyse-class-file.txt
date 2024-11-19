@@ -1,0 +1,3 @@
+/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/91-bad-gui-io/build/classes/java/main/it/unibo/mvc/BadIOGUI$1.class
+/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/91-bad-gui-io/build/classes/java/main/it/unibo/mvc/BadIOGUI$2.class
+/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/91-bad-gui-io/build/classes/java/main/it/unibo/mvc/BadIOGUI.class

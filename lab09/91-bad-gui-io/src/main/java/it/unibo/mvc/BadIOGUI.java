@@ -5,7 +5,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -15,8 +14,11 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
+import static java.lang.System.out;
 
 /**
  * This class is a simple application that writes a random number on a file.
@@ -39,30 +41,43 @@ public class BadIOGUI {
      * Creates a new BadIOGUI.
      */
     public BadIOGUI() {
-        final JPanel canvas = new JPanel();
-        canvas.setLayout(new BorderLayout());
-        final JButton write = new JButton("Write on file");
-        canvas.add(write, BorderLayout.CENTER);
-        frame.setContentPane(canvas);
+        final JPanel newPanel = new JPanel();
+        newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.X_AXIS));
+        frame.setContentPane(newPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        final JButton write = new JButton("Write on file");
         /*
-         * Handlers
-         */
+        * Handlers
+        */
         write.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 /*
-                 * This would be VERY BAD in a real application.
-                 * 
-                 * This makes the Event Dispatch Thread (EDT) work on an I/O
-                 * operation. I/O operations may take a long time, during which
-                 * your UI becomes completely unresponsive.
-                 */
+                * This would be VERY BAD in a real application.
+                * 
+                * This makes the Event Dispatch Thread (EDT) work on an I/O
+                * operation. I/O operations may take a long time, during which
+                * your UI becomes completely unresponsive.
+                */
                 try (PrintStream ps = new PrintStream(PATH, StandardCharsets.UTF_8)) {
                     ps.print(randomGenerator.nextInt());
                 } catch (IOException e1) {
                     JOptionPane.showMessageDialog(frame, e1, "Error", JOptionPane.ERROR_MESSAGE);
                     e1.printStackTrace(); // NOPMD: allowed as this is just an exercise
+                }
+            }
+        });
+        newPanel.add(write);
+        final JButton read = new JButton("Read");
+        newPanel.add(read);
+        read.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                try {
+                    final List<String> fileContent = Objects.requireNonNull(Files.readAllLines(Path.of(PATH)));
+                    out.println(fileContent.get(0));
+                } catch (IOException e1) {
+                    out.println("Error! Trying to read " + PATH + "!");
                 }
             }
         });
@@ -87,6 +102,7 @@ public class BadIOGUI {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
+        frame.pack();
         /*
          * OK, ready to push the frame onscreen
          */

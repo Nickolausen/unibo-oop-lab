@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd xmlns="https://pmd-code.org/schema/cpd-report"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         pmdVersion="7.7.0"
+         timestamp="2024-11-19T15:11:56.401657+01:00"
+         version="1.0.0"
+         xsi:schemaLocation="https://pmd-code.org/schema/cpd-report https://pmd.github.io/schema/cpd-report_1_0_0.xsd">
+   <file path="/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/91-bad-gui-io/src/main/java/it/unibo/mvc/BadIOGUI.java"
+         totalNumberOfTokens="382"/>
+</pmd-cpd>
