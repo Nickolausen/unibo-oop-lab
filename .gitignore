@@ -1,11 +1,1 @@
-# Build files
-build/
-bin/
-*.class
-.gradle/
-
-# Mac Storage files
 .DS_Store
-
-# VS Code configuration folder
-.vscode/
