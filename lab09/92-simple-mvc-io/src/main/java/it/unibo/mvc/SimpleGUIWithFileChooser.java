@@ -40,6 +40,7 @@ public final class SimpleGUIWithFileChooser {
      * Initializes the elements in the view.
      */
     private void setupView() {
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
         final JTextArea textArea = new JTextArea();
