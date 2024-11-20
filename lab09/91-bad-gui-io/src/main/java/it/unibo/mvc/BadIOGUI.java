@@ -41,6 +41,7 @@ public class BadIOGUI {
      * Creates a new BadIOGUI.
      */
     public BadIOGUI() {
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         final JPanel newPanel = new JPanel();
         newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.X_AXIS));
         frame.setContentPane(newPanel);
