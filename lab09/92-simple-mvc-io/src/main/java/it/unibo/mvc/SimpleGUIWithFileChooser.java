@@ -17,7 +17,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 /**
  * A very simple program using a graphical interface.
  * 
