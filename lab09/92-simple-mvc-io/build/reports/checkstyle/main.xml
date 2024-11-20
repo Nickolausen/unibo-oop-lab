@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="10.20.1">
-<file name="/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/92-simple-mvc-io/src/main/java/it/unibo/mvc/Controller.java">
-</file>
-<file name="/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/92-simple-mvc-io/src/main/java/it/unibo/mvc/SimpleGUI.java">
-</file>
-<file name="/Users/nickolausen/Desktop/school/unibo-local/ay2425/1-oop/lab-exercises/lab09/92-simple-mvc-io/src/main/java/it/unibo/mvc/SimpleGUIWithFileChooser.java">
-</file>
-</checkstyle>
