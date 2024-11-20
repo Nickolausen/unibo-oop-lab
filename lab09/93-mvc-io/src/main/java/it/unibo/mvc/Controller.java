@@ -13,9 +13,9 @@ public interface Controller {
     String getNextString();
 
     /**
-     * Sets a new string to the queue.
+     * Sets a new string to print out.
      * 
-     * @param newItem string to enqueue
+     * @param newItem string to print out
      */
     void setNextString(String newItem);
 
