@@ -7,10 +7,8 @@ import java.util.List;
 /**
  */
 public final class DrawNumberApp implements DrawNumberViewObserver {
-    private static final int MIN = 0;
-    private static final int MAX = 100;
-    private static final int ATTEMPTS = 10;
-
+    
+    private static final String FILE_PATH = "config.yml";
     private final DrawNumber model;
     private final List<DrawNumberView> views;
 
@@ -18,16 +16,22 @@ public final class DrawNumberApp implements DrawNumberViewObserver {
      * @param views
      *            the views to attach
      */
-    public DrawNumberApp(final DrawNumberView... views) {
+    public DrawNumberApp(final String filePath, final DrawNumberView... views) {
         /*
-         * Side-effect proof
-         */
+        * Side-effect proof
+        */
         this.views = Arrays.asList(Arrays.copyOf(views, views.length));
         for (final DrawNumberView view: views) {
             view.setObserver(this);
             view.start();
         }
-        this.model = new DrawNumberImpl(MIN, MAX, ATTEMPTS);
+        final ResourceLoader loader = new ResourceLoader(filePath);
+        final Configuration config = this.buildConfigFromFile(loader);
+        this.model = new DrawNumberImpl(
+            config.getMin(),
+            config.getMax(),
+            config.getAttempts()
+        );
     }
 
     @Override
@@ -66,7 +70,15 @@ public final class DrawNumberApp implements DrawNumberViewObserver {
      * @throws FileNotFoundException 
      */
     public static void main(final String... args) throws FileNotFoundException {
-        new DrawNumberApp(new DrawNumberViewImpl());
+        new DrawNumberApp(FILE_PATH, new DrawNumberViewImpl());
     }
 
+    @Override
+    public Configuration buildConfigFromFile(final ResourceLoader loader) {
+        final Configuration.Builder outputConfigurationBuilder = new Configuration.Builder();
+        outputConfigurationBuilder.setMin(loader.getParameter("minimum"));
+        outputConfigurationBuilder.setMax(loader.getParameter("maximum"));
+        outputConfigurationBuilder.setAttempts(loader.getParameter("attempts"));
+        return outputConfigurationBuilder.build();
+    }
 }

@@ -21,4 +21,12 @@ public interface DrawNumberViewObserver {
      * Gracefully quits from the application.
      */
     void quit();
+
+    /**
+     * Load resources from files.
+     * 
+     * @param loader the resource loader that should be used
+     * @return the configuration object
+     */
+    Configuration buildConfigFromFile(ResourceLoader loader);
 }
