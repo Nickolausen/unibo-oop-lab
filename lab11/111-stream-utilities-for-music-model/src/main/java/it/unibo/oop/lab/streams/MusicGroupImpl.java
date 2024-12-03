@@ -53,7 +53,7 @@ public final class MusicGroupImpl implements MusicGroup {
     public int countSongs(final String albumName) {
         return (int)this.songs.stream()
             .filter(song -> song.getAlbumName().isPresent())
-            .filter(song -> song.getAlbumName().get() == albumName)
+            .filter(song -> song.getAlbumName().get().equals(albumName))
             .count();
     }
 
@@ -66,21 +66,21 @@ public final class MusicGroupImpl implements MusicGroup {
 
     @Override
     public OptionalDouble averageDurationOfSongs(final String albumName) {
-        double sumOfDuration = this.songs.stream()
+        final double sumOfDuration = this.songs.stream()
             .filter(song -> song.getAlbumName().isPresent())
-            .filter(song -> song.getAlbumName().get() == albumName)
+            .filter(song -> song.getAlbumName().get().equals(albumName))
             .map(Song::getDuration)
             .reduce((d1, d2) -> d1 + d2).get();
-        double numOfSongs = this.songs.stream()
+        final double numOfSongs = this.songs.stream()
             .filter(song -> song.getAlbumName().isPresent())
-            .filter(song -> song.getAlbumName().get() == albumName)
+            .filter(song -> song.getAlbumName().get().equals(albumName))
             .count();
         return OptionalDouble.of(sumOfDuration / numOfSongs); 
     }
 
     @Override
     public Optional<String> longestSong() {
-        double maxDuration = this.songs.stream()
+        final double maxDuration = this.songs.stream()
             .map(Song::getDuration)
             .max(Double::compareTo)
             .get();

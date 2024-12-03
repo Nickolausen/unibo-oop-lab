@@ -1,7 +1,6 @@
 package it.unibo.oop.lab.streams;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,7 +67,7 @@ final class TestMusicGroup {
      */
     @Test
     void testOrderedSongNames() {
-        final List<String> result = Arrays.asList(new String[] {
+        final List<String> result = List.of(
                 "Black Dog",
                 "Dazed and Confused",
                 "I Can't Quit You Baby",
@@ -77,7 +76,7 @@ final class TestMusicGroup {
                 "That's the Way",
                 "Travelling Riverside Blues",
                 "When the Levee Breaks",
-                "Whole Lotta Love" });
+                "Whole Lotta Love");
         final List<String> actual = lz.orderedSongNames().collect(toList());
         assertEquals(result, actual);
     }
@@ -87,7 +86,7 @@ final class TestMusicGroup {
      */
     @Test
     void testAlbumInYear() {
-        final List<String> result = Arrays.asList(new String[] { II, I });
+        final List<String> result = List.of( II, I );
         final List<String> actual = lz.albumInYear(1969).collect(toList());
         assertEquals(result, actual);
     }

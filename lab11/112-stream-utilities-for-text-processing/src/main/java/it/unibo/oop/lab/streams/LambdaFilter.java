@@ -6,9 +6,10 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.Toolkit;
-import java.util.Arrays;
+import java.util.Comparator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -44,16 +45,20 @@ public final class LambdaFilter extends JFrame {
 
         LOWERCASE("To lowercase", String::toLowerCase),
 
-        COUNT_CHARS("Count # of chars", str -> str.length() + ""),
-        
-        COUNT_LINES("Count # of lines", str -> str.lines().count() + ""),
-        
-        SORT_WORDS("Alphabetical sort", str -> Arrays.asList(str.split(" ")).stream()
-            .sorted()
-            .reduce("", (partial, newStr) -> partial += newStr)),
-        
-        WORD_COUNT("Word length counter", str -> Arrays.asList(str.split(" ")).stream()
-            .collect(Collectors.groupingBy(/* TODO */)));
+        COUNT_CHARS("Count # of chars", str -> String.valueOf(str.length())),
+
+        COUNT_LINES("Count # of lines", str -> String.valueOf(str.lines().count())),
+
+        SORT_WORDS("Alphabetical sort", str -> Stream.of(str.split("[\\s\\n]"))
+            .sorted(Comparator.comparing(String::toLowerCase))
+            .collect(Collectors.joining("\n"))),
+
+        WORD_COUNT("Occurences per word counter", str -> Stream.of(str.split("[\\s\\n]"))
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+            .entrySet().stream()
+            .map(item -> item.getKey() + " -> " + item.getValue())
+            .collect(Collectors.joining("\n"))
+        );
 
         private final String commandName;
         private final Function<String, String> fun;
@@ -75,7 +80,7 @@ public final class LambdaFilter extends JFrame {
 
     private LambdaFilter() {
         super("Lambda filter GUI");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         final JPanel panel1 = new JPanel();
         final LayoutManager layout = new BorderLayout();
         panel1.setLayout(layout);
