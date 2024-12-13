@@ -22,3 +22,4 @@ Ogni branch di questa repository ha una cartella che contiene una serie di eserc
 - `lab09`: Done
 - `lab10`: Almost finished
 - `lab11`: Done
+- `lab12`: Missing
